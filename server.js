@@ -45,6 +45,13 @@ db.Course.create(
   { name: "Macro Economics" },
   { name: "Micro Economics" }
 );
+
+db.Subject.create(
+  { name: "Biology" },
+  { name: "History" },
+  { name: "Physics" },
+  { name: "Economics" }
+);
 app.get("/subject", (req, res) => {
   db.Subject.find({})
     .then(dbCourse => {

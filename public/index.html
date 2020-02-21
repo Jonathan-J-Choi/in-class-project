@@ -1,18 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Courses</h1>
-    <p>Choose a course, bitch!</p>
-    <select id="courses" name="courses">
-      <option value="volvo">test1</option>
-      <option value="saab">test2</option>
-      <option value="fiat">test3</option>
-      <option value="audi">test4</option>
-    </select>
-  </body>
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport">
+	<title>Gar University</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <br><br>
+  <div class = "container text-center">
+    <div class="jumbotron">
+      <h1 class="display-4">Gar University</h1>
+      <p class="lead">INDENT! INDENT! INDENT!</p>
+      <p class="lead">Masters of the Two Finger Typing Style</p>
+      <!-- Subjects -->
+      <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Subjects
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/biology">Biology</a>
+          <a class="dropdown-item" href="/history">History</a>
+          <a class="dropdown-item" href="/physics">Physics</a>
+          <a class="dropdown-item" href="/economics">Economics</a>
+        </div>
+      </div>
+      <hr class="my-4">
+      
+      <!-- Courses -->
+      <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Courses
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Link 1</a>
+          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item" href="#">Link 3</a>
+        </div>
+      </div>
+      <hr class="my-4">
+      
+      <!-- Students -->
+      <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Students
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Link 1</a>
+          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item" href="#">Link 3</a>
+        </div>
+      </div>
+      <hr class="my-4">
+    </div>
+  </div>
+
+</body>
 </html>

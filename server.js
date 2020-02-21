@@ -15,20 +15,6 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-db.Student.create(
-  {name: "Gary"},
-  {name: "Dan"},
-  {name: "Erik"},
-  {name: "Katie"},
-  {name: "Aya"}
-  )
-  .then(dbStudent => {
-    console.log(dbStudent);
-  })
-  .catch(({ message }) => {
-    console.log(message);
-  });
-
 //Connecting to MongoDB via mongoose
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${dbName}`, {
   useNewUrlParser: true
@@ -51,11 +37,33 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${dbName}`, {
 //     console.log(message);
 //   });
 db.Course.create(
-  { name: "Biology" },
-  { name: "History" },
-  { name: "Physics" },
-  { name: "Economics" }
+  { name: "Bio 101" },
+  { name: "World History" },
+  { name: "European History" },
+  { name: "US History" },
+  { name: "AP Physics" },
+  { name: "Macro Economics" },
+  { name: "Micro Economics" }
 );
+app.get("/subject", (req, res) => {
+  db.Subject.find({})
+    .then(dbCourse => {
+      res.json(dbCourse);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+app.get("/course", (req, res) => {
+  db.Course.find({})
+    .then(dbCourse => {
+      res.json(dbCourse);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
 // app.post("/submit", ({ body }, res) => {
 //   db.Book.create(body)
@@ -69,16 +77,6 @@ db.Course.create(
 //       res.json(err);
 //     });
 // });
-
-app.get("/course", (req, res) => {
-  db.Course.find({})
-    .then(dbCourse => {
-      res.json(dbCourse);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
 
 // app.get("/library", (req, res) => {
 //   db.Library.find({})

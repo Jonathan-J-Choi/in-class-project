@@ -16,9 +16,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Connecting to MongoDB via mongoose
-mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${dbName}`, {
-  useNewUrlParser: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI || `mongodb://localhost/${dbName}`,
+  {
+    useNewUrlParser: true
+  }
+  // function() {
+  //   mongoose.connection.db.dropDatabase();
+  // }
+);
 
 // app.post("/submit", ({ body }, res) => {
 //   User.create(body)
@@ -29,13 +35,6 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${dbName}`, {
 //       res.json(err);
 //     });
 // });
-// db.Library.create({ name: "Campus Library" })
-//   .then(dbLibrary => {
-//     console.log(dbLibrary);
-//   })
-//   .catch(({ message }) => {
-//     console.log(message);
-//   });
 
 // Courses //
 db.Course.create(
@@ -85,7 +84,7 @@ app.get("/api/course", (req, res) => {
     });
 });
 
-app.get("/api/students", (req, res) => {
+app.get("/api/students/:courseId", (req, res) => {
   db.Student.find({})
     .then(dbStudents => {
       res.json(dbStudents);
@@ -95,21 +94,33 @@ app.get("/api/students", (req, res) => {
     });
 });
 
+app.post("/course/:subjectId", (req, res) => {
+  db.Course.create(req.body)
+    .then(({ _id }) => {
+      db.Subject.findOneAndUpdate({}, { $push: { course: _id } });
+    })
+    .then(dbSubject => {
+      res.json(dbSubject);
+    })
+    .catch(err => res.json(err));
+});
+
+app.post("/student/:courseId", (req, res) => {
+  db.Course.create(req.body)
+    .then(({ _id }) => {
+      db.Course.findOneAndUpdate({}, { $push: { course: _id } });
+    })
+    .then(dbCourse => {
+      res.json(dbCourse);
+    })
+    .catch(err => res.json(err));
+});
+
 // app.post("/submit", ({ body }, res) => {
 //   db.Book.create(body)
 //     .then(({ _id }) =>
 //       db.Library.findOneAndUpdate({}, { $push: { books: _id } }, { new: true })
 //     )
-//     .then(dbLibrary => {
-//       res.json(dbLibrary);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
-// app.get("/library", (req, res) => {
-//   db.Library.find({})
 //     .then(dbLibrary => {
 //       res.json(dbLibrary);
 //     })

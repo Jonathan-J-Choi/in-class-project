@@ -36,6 +36,12 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${dbName}`, {
 //   .catch(({ message }) => {
 //     console.log(message);
 //   });
+db.Course.create(
+  { name: "Biology" },
+  { name: "History" },
+  { name: "Physics" },
+  { name: "Economics" }
+);
 
 // app.post("/submit", ({ body }, res) => {
 //   db.Book.create(body)

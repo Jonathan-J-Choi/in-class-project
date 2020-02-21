@@ -1,0 +1,25 @@
+{
+  "name": "inclassproject",
+  "version": "1.0.0",
+  "description": "1. Create a node app that will serve a web page (server.js)\r 2. You'll be using express, mongo, and mongoose, so load all accordingly\r 3. You're managing subject and course data for a university. Your app needs to show all subjects in a drop down. When a subject is selected, all courses for that subject are displayed.\r 4. There should be the ability to add a course to the selected subject. When the course is added, DO NOT reload the page. Instead, dynamically update the list of courses with the one just added, making sure to attach the new course _id from the JSON payload.\r 5. When a course is selected, all students who have registered for the course are shown. There should be the ability to add a student to the selected course. When the student is added, DO NOT reload the page. Instead, dynamically update the list of students with the one just added, making sure to attach the new student _id from the JSON payload.\r 6. You'll create three models:\r    Subjects:\r      Fields:  name  (and _id)\r               courses (dynamic)\r               You can hard-code via Robo3T a set of subjects, but trying seeing if you can do this programmatically when the app boots. There is a mongoose seeder package you can use, but it's also relatively easy to do it yourself w/ some research.\r    Courses:\r      Fields:  name (and _id)\r               students (dynamic)\r    Students:  name (and _id)\r 7. Routes\r   GET /home\r   Loads the home page\r   GET /api/subjects\r   Returns a JSON payload of all subjects \r   GET /api/courses/:subjectId\r   Returns a JSON payload of all courses for the specified subject \r   GET /api/students/:courseId\r   Returns a JSON payload of all students for the specified course\r   POST /course/:subjectId\r   Creates a new course associated with the specified subjectId. Returns\r   a JSON payload of the new course data.\r   POST /student/:courseId \r   Creates a new student associated with the specified courseId. Returns\r   a JSON payload of the new student data.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrBachChoi/in-class-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrBachChoi/in-class-project/issues"
+  },
+  "homepage": "https://github.com/MrBachChoi/in-class-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.1",
+    "morgan": "^1.9.1"
+  }
+}

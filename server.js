@@ -64,6 +64,10 @@ db.Student.create(
   { name: "Aya" }
 );
 
+app.get("/", (req, res) => {
+  res.render("index.html");
+});
+
 app.get("/api/subject", (req, res) => {
   db.Subject.find({})
     .then(dbCourse => {
@@ -74,6 +78,17 @@ app.get("/api/subject", (req, res) => {
     });
 });
 
+app.get("/api/course/:subjectId", (req, res) => {
+  db.Course.find({})
+    .then(dbCourse => {
+      res.json(dbCourse);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+//same as above but minus the :subjectId
 app.get("/api/course", (req, res) => {
   db.Course.find({})
     .then(dbCourse => {

@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
   <br><br>
@@ -18,7 +19,7 @@
       <p class="lead">Masters of the Two Finger Typing Style</p>
       <!-- Subjects -->
       <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        <button type="button" id="subjects" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
           Subjects
         </button>
         <div class="dropdown-menu">
@@ -31,9 +32,9 @@
       <hr class="my-4">
       
       <!-- Courses -->
-      <div class="dropdown d-none">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-          Courses
+      <div class="dropdown d-none" id="course">
+        <button type="button" id="courses" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          View Courses
         </button>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Link 1</a>
@@ -42,19 +43,25 @@
         </div>
       </div>
       
+      <br>
       <!-- Students -->
-      <div class="dropdown d-none">
+      <div class="dropdown d-none" id="student">
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-          Students
+          Select a Student to add to this course
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Link 1</a>
-          <a class="dropdown-item" href="#">Link 2</a>
-          <a class="dropdown-item" href="#">Link 3</a>
+          <a class="dropdown-item" href="#">Gary</a>
+          <a class="dropdown-item" href="#">Dan</a>
+          <a class="dropdown-item" href="#">Erik</a>
+          <a class="dropdown-item" href="#">Katie</a>
+          <a class="dropdown-item" href="#">Aya</a>
         </div>
       </div>
+
     </div>
   </div>
 
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="app.js"></script>
 </html>

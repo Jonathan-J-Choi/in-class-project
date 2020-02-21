@@ -85,6 +85,16 @@ app.get("/course", (req, res) => {
     });
 });
 
+app.get("/students", (req, res) => {
+  db.Student.find({})
+    .then(dbStudents => {
+      res.json(dbStudents);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
 // app.post("/submit", ({ body }, res) => {
 //   db.Book.create(body)
 //     .then(({ _id }) =>

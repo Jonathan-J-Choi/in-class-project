@@ -36,6 +36,8 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${dbName}`, {
 //   .catch(({ message }) => {
 //     console.log(message);
 //   });
+
+// Courses //
 db.Course.create(
   { name: "Bio 101" },
   { name: "World History" },
@@ -46,12 +48,23 @@ db.Course.create(
   { name: "Micro Economics" }
 );
 
+//Subjects //
 db.Subject.create(
   { name: "Biology" },
   { name: "History" },
   { name: "Physics" },
   { name: "Economics" }
 );
+
+// Student //
+db.Student.create(
+  { name: "Gary" },
+  { name: "Dan" },
+  { name: "Erik" },
+  { name: "Katie" },
+  { name: "Aya" }
+);
+
 app.get("/subject", (req, res) => {
   db.Subject.find({})
     .then(dbCourse => {

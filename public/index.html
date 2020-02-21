@@ -32,14 +32,20 @@
       <hr class="my-4">
       
       <!-- Courses -->
-      <div class="dropdown d-none" id="course">
-        <button type="button" id="courses" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-          View Courses
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Link 1</a>
-          <a class="dropdown-item" href="#">Link 2</a>
-          <a class="dropdown-item" href="#">Link 3</a>
+      <div class="form-group d-none" id="course">
+        <label for="exampleFormControlSelect1">View Courses</label>
+        <select class="form-control" id="courses">
+          <option>Bio 101</option>
+          <option>World History</option>
+          <option>European History</option>
+          <option>US History</option>
+          <option>AP Physics</option>
+          <option>Macro Economics</option>
+          <option>Micro Economics</option>
+        </select>
+        <p>Students In This Course:</p>
+        <div id="inCourse">
+          
         </div>
       </div>
       

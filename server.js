@@ -64,6 +64,10 @@ db.Student.create(
   { name: "Aya" }
 );
 
+app.get("/", (req, res) => {
+  res.render("index.html");
+});
+
 app.get("/api/subject", (req, res) => {
   db.Subject.find({})
     .then(dbCourse => {

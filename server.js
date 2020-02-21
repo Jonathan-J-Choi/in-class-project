@@ -15,6 +15,20 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+db.Student.create(
+  {name: "Gary"},
+  {name: "Dan"},
+  {name: "Erik"},
+  {name: "Katie"},
+  {name: "Aya"}
+  )
+  .then(dbStudent => {
+    console.log(dbStudent);
+  })
+  .catch(({ message }) => {
+    console.log(message);
+  });
+
 //Connecting to MongoDB via mongoose
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${dbName}`, {
   useNewUrlParser: true

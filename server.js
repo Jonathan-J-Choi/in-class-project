@@ -65,7 +65,7 @@ db.Student.create(
   { name: "Aya" }
 );
 
-app.get("/subject", (req, res) => {
+app.get("/api/subject", (req, res) => {
   db.Subject.find({})
     .then(dbCourse => {
       res.json(dbCourse);
@@ -75,7 +75,7 @@ app.get("/subject", (req, res) => {
     });
 });
 
-app.get("/course", (req, res) => {
+app.get("/api/course", (req, res) => {
   db.Course.find({})
     .then(dbCourse => {
       res.json(dbCourse);
@@ -85,7 +85,7 @@ app.get("/course", (req, res) => {
     });
 });
 
-app.get("/students", (req, res) => {
+app.get("/api/students", (req, res) => {
   db.Student.find({})
     .then(dbStudents => {
       res.json(dbStudents);
